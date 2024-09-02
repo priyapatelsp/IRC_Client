@@ -67,14 +67,13 @@ public class IRCClient {
                     quitIRC(out, command);
                     isRunning = false;
                 } else if (currentChannel != null) {
-                    // Send message to the current channel
                     sendMessage(out, command);
                 } else {
                     System.out.println("You are not in a channel. Join a channel to send messages.");
                 }
             }
 
-            // Close resources
+
             scanner.close();
             out.close();
             in.close();
@@ -124,7 +123,6 @@ public class IRCClient {
             String quitMessage = message.substring(message.indexOf(" :") + 2);
             System.out.println(origin + " has left IRC " + quitMessage);
         }
-        // Handle additional messages like notices here
     }
 
     private static void joinChannel(PrintWriter out, String channel) {
